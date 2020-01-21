@@ -6,7 +6,7 @@
 * 2. 配置文件中 spring.redis 前缀的配置
 * 3. 默认配置
     
-锁使用WatchDog自动延长锁的持有时间和无限等待获取锁, 如需修改, 可参考@Rlock中的参数
+默认的锁会使用WatchDog自动延长锁的持有时间, 且无限等待获取锁, 如需修改, 可修改@Rlock中的参数
 
 ### 简介
 该项目主要利用Spring Boot的自动化配置特性来实现快速的将redis分布式锁引入spring boot应用，简化Redisson的操作。
