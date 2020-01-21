@@ -102,7 +102,7 @@
         <connection>scm:git:https://github.com/dawn9117/rlock-spring-boot-starter.git</connection>
         <developerConnection>scm:git:https://github.com/dawn9117/rlock-spring-boot-starter.git</developerConnection>
         <url>https://github.com/dawn9117/rlock-spring-boot-starter</url>
-        <tag>v${project.version}</tag>
+        <tag>${project.version}</tag>
     </scm>
 
     <developers>
