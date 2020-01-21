@@ -1,5 +1,6 @@
 package com.github.dawn9117.rlock.config;
 
+import com.github.dawn9117.rlock.common.enums.LockModel;
 import lombok.Data;
 
 /**
@@ -24,4 +25,9 @@ public class RlockProperties {
 	 * 项目名称
 	 */
 	private String project = "default";
+
+	/**
+	 * 锁类型
+	 */
+	private LockModel lockModel;
 }

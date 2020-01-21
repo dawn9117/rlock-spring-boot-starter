@@ -1,6 +1,7 @@
 package com.github.dawn9117.rlock.config;
 
 import lombok.Data;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
@@ -19,9 +20,14 @@ public class RlockConfig {
 	}
 
 	@Bean
-	@ConfigurationProperties(prefix = "redisson")
+	@ConfigurationProperties(prefix = "spring.redis.redisson")
 	public RedissonProperties redissonProperties() {
 		return new RedissonProperties();
+	}
+
+	@Bean
+	public RedisProperties redisProperties() {
+		return new RedisProperties();
 	}
 
 }

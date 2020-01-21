@@ -4,7 +4,6 @@ import com.github.dawn9117.rlock.annotation.Rlock;
 import com.github.dawn9117.rlock.common.enums.LockModel;
 import com.github.dawn9117.rlock.common.util.AppContextHolder;
 import com.github.dawn9117.rlock.common.util.JoinPointUtils;
-import com.github.dawn9117.rlock.config.RedissonProperties;
 import com.github.dawn9117.rlock.config.RlockProperties;
 import com.github.dawn9117.rlock.core.creator.LockCreator;
 import com.github.dawn9117.rlock.core.lock.LockContext;
@@ -32,8 +31,6 @@ import java.util.concurrent.TimeUnit;
 @AllArgsConstructor
 //@Order(Ordered.HIGHEST_PRECEDENCE)
 public class LockAspect {
-
-	private RedissonProperties redissonProperties;
 
 	private RlockProperties rlockProperties;
 
@@ -125,8 +122,8 @@ public class LockAspect {
 			return rlock.lockModel();
 		}
 
-		if (redissonProperties.getLockModel() != null && !LockModel.AUTO.equals(redissonProperties.getLockModel())) {
-			return redissonProperties.getLockModel();
+		if (rlockProperties.getLockModel() != null && !LockModel.AUTO.equals(rlockProperties.getLockModel())) {
+			return rlockProperties.getLockModel();
 		}
 
 		// 未配置则根据参数长度自动选择
