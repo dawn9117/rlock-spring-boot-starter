@@ -1,0 +1,5 @@
+redisson:
+  single-server-config:
+    address: localhost:6379
+rlock:
+  enabled: true
