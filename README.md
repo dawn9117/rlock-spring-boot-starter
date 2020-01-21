@@ -2,9 +2,9 @@
 基于Redisson的分布式锁starter
 
 ### 特别提示: 配置项使用优先级(1 > 2 > 3): 
-* 1.优先使用通过 RedissonProperties.config 指定的配置
-* 2.配置文件中 spring.redis 前缀的配置
-* 3.默认配置
+* 1. 优先使用通过 RedissonProperties.config 指定的配置
+* 2. 配置文件中 spring.redis 前缀的配置
+* 3. 默认配置
     
 锁使用WatchDog自动延长锁的持有时间和无限等待获取锁, 如需修改, 可参考@Rlock中的参数
 
@@ -37,7 +37,7 @@ step1. 在pom.xml中引入依赖：
 
 step2. 根据需求配置参数
 
-#####参考:
+参考:
 * com.github.dawn9117.rlock.config.RlockProperties
 * org.springframework.boot.autoconfigure.data.redis.RedisProperties
 * org.redisson.config.Config
