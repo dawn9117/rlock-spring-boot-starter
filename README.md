@@ -1,11 +1,10 @@
 # rlock-spring-boot-starter
 基于Redisson的分布式锁starter
 
-### 特别提示: 
-配置项使用优先级(1 > 2 > 3):
-    * 1.优先使用通过 RedissonProperties.config 指定的配置
-    * 2.配置文件中 spring.redis 前缀的配置
-    * 3.默认配置
+### 特别提示: 配置项使用优先级(1 > 2 > 3): 
+* 1.优先使用通过 RedissonProperties.config 指定的配置
+* 2.配置文件中 spring.redis 前缀的配置
+* 3.默认配置
     
 锁使用WatchDog自动延长锁的持有时间和无限等待获取锁, 如需修改, 可参考@Rlock中的参数
 
@@ -38,10 +37,10 @@ step1. 在pom.xml中引入依赖：
 
 step2. 根据需求配置参数
 
-参考:
-    * com.github.dawn9117.rlock.config.RlockProperties
-    * org.springframework.boot.autoconfigure.data.redis.RedisProperties
-    * org.redisson.config.Config
+#####参考:
+* com.github.dawn9117.rlock.config.RlockProperties
+* org.springframework.boot.autoconfigure.data.redis.RedisProperties
+* org.redisson.config.Config
 
 
 step3. 在需要加分布式锁的方法上增加@Rlock注解
@@ -60,7 +59,7 @@ public class UserService implements IUserService {
 }
 ```
 
-#### 锁说明: 默认使用ReentrantLock(可通过LockModal指定), 规则如下(key构建规则可自定义, 参考 com.github.dawn9117.rlock.core.lock.name.LockNameBuilder): 
+#### 锁说明: 默认使用ReentrantLock(可通过LockModal指定)<br/> 规则如下(key构建规则可自定义, 参考 com.github.dawn9117.rlock.core.lock.name.LockNameBuilder): 
 * 注解未指定keys: prefix + 项目名称 + 类全路径 + 方法名, 例如: /locks/project/com.github.dawn.UserService/add
 * 指定keys: prefix + 项目名称 + 类全路径 + 方法名 + key, 例如 /locks/project/com.github.dawn.UserService/add/zhangsan
 * SPEL: prefix + 项目名称 + 类全路径 + 方法名 + SPEL, 例如 @Rlock("#param1"): /locks/project/com.github.dawn.UserService/add/解析#param1得到的值
