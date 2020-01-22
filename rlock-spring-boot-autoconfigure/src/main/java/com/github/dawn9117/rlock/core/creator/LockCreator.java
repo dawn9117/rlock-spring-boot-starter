@@ -14,7 +14,7 @@ public interface LockCreator {
 	 * 是否支持
 	 *
 	 * @param model 锁模式
-	 * @return
+	 * @return 是否支持
 	 */
 	default Boolean supported(LockModel model) {
 		return false;

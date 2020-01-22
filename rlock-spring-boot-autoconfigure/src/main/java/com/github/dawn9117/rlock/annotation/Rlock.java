@@ -26,6 +26,8 @@ public @interface Rlock {
 
 	/**
 	 * 锁的模式:如果不设置,默认自动模式,当参数只有一个.使用 REENTRANT 参数多个 MULTIPLE
+	 *
+	 * @return 锁类型
 	 */
 	LockModel lockModel() default LockModel.AUTO;
 
@@ -41,11 +43,11 @@ public @interface Rlock {
 	/**
 	 * 锁持有时间, 默认-1: 看门狗自动续期, 否则锁到期自动失效
 	 * <p>
-	 * leaseTime == -1, 设置锁有效期为{@RedissonProperties#lockWatchdogTimeout}
-	 * 每隔{@RedissonProperties#lockWatchdogTimeout}的三分之一时间重置锁的有效时间
+	 * leaseTime == -1, 设置锁有效期为RedissonProperties.lockWatchdogTimeout
+	 * 每隔RedissonProperties.lockWatchdogTimeout的三分之一时间重置锁的有效时间
 	 * <p>
 	 * 具体实现在 RedissonLock#lock(long, TimeUnit)
-	 * private <T> RFuture<Long> tryAcquireAsync(long leaseTime, TimeUnit unit, long threadId)
+	 * RedissonLock.tryAcquireAsync
 	 *
 	 * @return 锁持有时间
 	 * @see RedissonLock#lock(long, TimeUnit)
@@ -71,7 +73,7 @@ public @interface Rlock {
 	 *
 	 * @return 补偿策略
 	 */
-	Class<? extends LockFailedCompensator> compensator() default RetryLockCompensator.class;
+//	Class<? extends LockFailedCompensator> compensator() default RetryLockCompensator.class;
 
 
 }

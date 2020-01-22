@@ -5,7 +5,6 @@ import com.github.dawn9117.rlock.common.util.AppContextHolder;
 import com.github.dawn9117.rlock.config.RedissonProperties;
 import com.github.dawn9117.rlock.config.RlockConfig;
 import com.github.dawn9117.rlock.config.RlockProperties;
-import com.github.dawn9117.rlock.core.selector.FailedCompensatorSelector;
 import com.github.dawn9117.rlock.core.selector.LockCreatorSelector;
 import com.github.dawn9117.rlock.core.selector.LockNameBuilderSelector;
 import org.redisson.Redisson;
@@ -29,8 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@Import({AppContextHolder.class, RlockConfig.class,
-		FailedCompensatorSelector.class, LockNameBuilderSelector.class, LockCreatorSelector.class})
+@Import({AppContextHolder.class, RlockConfig.class, LockNameBuilderSelector.class, LockCreatorSelector.class})
 @ConditionalOnProperty(name = "enabled", prefix = "rlock", matchIfMissing = true, havingValue = "true")
 public class RlockAutoConfiguration {
 

@@ -31,6 +31,7 @@ public class VariableUtils {
 	 *
 	 * @param joinPoint 连接的方法
 	 * @return 参数名称列表
+	 * @throws NoSuchMethodException 找不到方法异常
 	 */
 	public static String[] getParameterNames(JoinPoint joinPoint) throws NoSuchMethodException {
 		Method method = JoinPointUtils.getMethod(joinPoint);
