@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.github.dawn9117</groupId>
         <artifactId>rlock-spring-boot</artifactId>
-        <version>${revision}</version>
+        <version>1.0.2</version>
     </parent>
     <artifactId>rlock-spring-boot-autoconfigure</artifactId>
     <name>${project.artifactId}</name>
