@@ -1,6 +1,7 @@
 package com.github.dawn9117.rlock.config;
 
 import lombok.Data;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,7 @@ public class RlockConfig {
 	}
 
 	@Bean
+	@ConditionalOnMissingBean
 	public RedisProperties redisProperties() {
 		return new RedisProperties();
 	}
