@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 
 /**
  * rlock配置
@@ -15,19 +16,22 @@ import org.springframework.context.annotation.Bean;
 public class RlockConfig {
 
 	@Bean
+	@ConditionalOnMissingBean(RlockProperties.class)
 	@ConfigurationProperties(prefix = "rlock")
 	public RlockProperties rlockProperties() {
 		return new RlockProperties();
 	}
 
-	@Bean
+	@Bean("rlockRedissonProperties")
+	@ConditionalOnMissingBean(RedissonProperties.class)
 	@ConfigurationProperties(prefix = "spring.redis.redisson")
 	public RedissonProperties redissonProperties() {
 		return new RedissonProperties();
 	}
 
 	@Bean
-	@ConditionalOnMissingBean
+	@Primary
+	@ConditionalOnMissingBean(RedisProperties.class)
 	public RedisProperties redisProperties() {
 		return new RedisProperties();
 	}
