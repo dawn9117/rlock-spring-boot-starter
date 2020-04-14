@@ -5,7 +5,7 @@
 
     <groupId>com.github.dawn9117</groupId>
     <artifactId>rlock-spring-boot</artifactId>
-    <version>1.0.9</version>
+    <version>1.1.0</version>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
     <description>rlock-spring-boot</description>

@@ -40,7 +40,7 @@ public class LockInvoker {
 	 * @throws LockException        LockException
 	 */
 	public boolean lock() throws InterruptedException, LockException {
-		log.info("[Rlock] prepare lock, lockName:[{}], lockContext:[{}]", rLock.getName(), lockContext);
+		log.debug("[Rlock] prepare lock, lockName:[{}], lockContext:[{}]", rLock.getName(), lockContext);
 		if (lockContext.getWaitTime() <= 0) {
 			//一直等待加锁
 			rLock.lock(lockContext.getLeaseTime(), TimeUnit.MILLISECONDS);
@@ -50,7 +50,7 @@ public class LockInvoker {
 		if (!isLocked()) {
 			throw new LockException("[Rlock] lock error, lock failed, lockContext:" + lockContext);
 		}
-		log.info("[Rlock] locked, lockName:[{}]", rLock.getName());
+		log.debug("[Rlock] locked, lockName:[{}]", rLock.getName());
 		return Boolean.TRUE;
 	}
 
@@ -61,7 +61,7 @@ public class LockInvoker {
 		if (this.isLocked()) {
 			rLock.unlock();
 		}
-		log.info("[Rlock] lock released, lockName:[{}]", rLock.getName());
+		log.debug("[Rlock] lock released, lockName:[{}]", rLock.getName());
 	}
 
 
