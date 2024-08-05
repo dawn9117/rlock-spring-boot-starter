@@ -32,7 +32,7 @@
         <maven.gpg.plugin>1.6</maven.gpg.plugin>
         <guava.version>20.0</guava.version>
         <revision>1.0.1</revision>
-        <redisson.version>3.12.0</redisson.version>
+        <redisson.version>3.22.0</redisson.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
 
